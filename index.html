@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script type="text/javascript" src="myscript.js"></script>
+	<style>
+		footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+		
+		.hid{
+	display: none;
+	}
+	</style>
+	<title>index</title>
+
+
+
+				<nav class=" navbar-inverse col-sm-12 col-md-12 col-lg-12">   
+		  			<div class="container-fluid">
+		    			<div class="navbar-header">
+		      				<a class="navbar-brand" href="#">WebSiteName</a>
+		    			</div>
+		    			
+		    			<ul class="nav navbar-nav">
+		      				<li class="active"><a href="#">Home</a></li>
+						    <li><a href="#">Page 1</a></li>
+						    <li><a href="#">Page 2</a></li>
+						    <li><a href="#">Page 3</a></li>
+		    			</ul>
+		    			
+		    			<ul class="nav navbar-nav navbar-right">
+		      				<li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+		      				
+		      				<form class="navbar-form navbar-right" action="/action_page.php">
+      						<div class="form-group">
+					        <input type="text" class="form-control" placeholder="Email">
+					        <input type="text" class="form-control" placeholder="Password">
+					      </div>
+					      <button type="submit" class="btn btn-default">Log in</button>
+					    </form>
+
+		   				 </ul>
+		  			</div>
+				</nav>
+
+
+</head>
+<body>
+
+		
+
+			<div class="container col-md-3 col-lg-2 bg-danger" id="ameno">
+				<nav class="sidenav">
+
+					<ul class="list-unstyled text-center">
+						<li><a href="#">Link 1</a>
+						<li><a href="#">Link 2</a>
+						<li><a href="#">Link 3</a>
+					</ul>
+				</nav>
+			</div>
+
+
+			<div class="col-md-6 bg-primary col-md-6 col-lg-8">
+				<div class="container-fluid text-center">
+					<h1>Welcome</h1>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+				</div>
+
+				<div class="container col-lg-12">
+					<form class="form col-lg-12" >
+						<div class="col-lg-4 form-group">
+							<label for="brand">Brand:</label>
+							<select  name="brand" class="form-control">
+								<option value=""></option>
+							</select>
+						</div>
+						<div class="col-lg-4 form-group">
+							<label for="model">Model:</label>
+							<select name="model" class="form-control">
+								<option value=""></option>
+							</select>
+						</div>
+
+						<div class="col-lg-4 form-group hid">
+							<label for="color">Color:</label>
+							<select name="color" class="form-control ">
+								<option value="">all</option>
+								<option value="red">Red</option>
+								<option value="blue">Blue</option>
+								<option value="red">Green</option>
+							</select>
+						</div>
+				
+						<div class="col-lg-4 form-group">
+							<label for="fuel">Fuel type:</label>
+							<select name="fuel" class="form-control">
+								<option value="">all</option>
+								<option value="diesel">Diesel</option>
+								<option value="petrol">Petrol</option>
+								<option value="electric">Electric</option>
+								<option value="hybrid">Hybrid</option>
+							</select>
+						</div>
+						<div class="col-lg-4 form-group">
+							<label for="afteryear">Year:</label>
+							<select name="fromyear" class="form-control">
+								<option value="">all</option>
+								<option value="1990">1990</option>
+								<option value="1991">1991</option>
+								<option value="1992">1992</option>
+								<option value="1993">1993</option>
+								<option value="1994">1994</option>
+								<option value="1995">1995</option>
+								<option value="1996">1996</option>
+								<option value="1997">1997</option>
+								<option value="1998">1998</option>
+								<option value="1999">1999</option>
+								<option value="2000">2000</option>
+								<option value="2001">2001</option>
+								<option value="2002">2002</option>
+								<option value="2003">2003</option>
+								<option value="2004">2004</option>
+								<option value="2005">2005</option>
+								<option value="2006">2006</option>
+								<option value="2007">2007</option>
+								<option value="2008">2008</option>
+								<option value="2009">2009</option>
+								<option value="2010">2010</option>
+								<option value="2011">2011</option>
+								<option value="2012">2012</option>
+								<option value="2013">2013</option>
+								<option value="2014">2014</option>
+								<option value="2015">2015</option>
+								<option value="2016">2016</option>
+								<option value="2017">2017</option>
+								<option value="2018">2018</option>
+								<option value="2019">2019</option>
+							</select>
+						</div>
+
+								<div class="col-lg-4 form-group hid">
+							<label for="toyear">To Year:</label>
+							<select name="toyear" class="form-control">
+								<option value="">all</option>
+								<option value="1990">1990</option>
+								<option value="1991">1991</option>
+								<option value="1992">1992</option>
+								<option value="1993">1993</option>
+								<option value="1994">1994</option>
+								<option value="1995">1995</option>
+								<option value="1996">1996</option>
+								<option value="1997">1997</option>
+								<option value="1998">1998</option>
+								<option value="1999">1999</option>
+								<option value="2000">2000</option>
+								<option value="2001">2001</option>
+								<option value="2002">2002</option>
+								<option value="2003">2003</option>
+								<option value="2004">2004</option>
+								<option value="2005">2005</option>
+								<option value="2006">2006</option>
+								<option value="2007">2007</option>
+								<option value="2008">2008</option>
+								<option value="2009">2009</option>
+								<option value="2010">2010</option>
+								<option value="2011">2011</option>
+								<option value="2012">2012</option>
+								<option value="2013">2013</option>
+								<option value="2014">2014</option>
+								<option value="2015">2015</option>
+								<option value="2016">2016</option>
+								<option value="2017">2017</option>
+								<option value="2018">2018</option>
+								<option value="2019">2019</option>
+							</select>
+						</div>
+
+						<div class="col-lg-4 form-group">
+							<label for="transmision">Transmision:</label>
+							<select name="transmision" class="form-control">
+								<option value="">all</option>
+								<option value="manual">Manual</option>
+								<option value="auto">Automatic</option>
+								<option value="semi">Semi-automatic</option>
+							</select>
+						</div>
+						<div class="col-lg-4 form-group">
+							<label for="minpower">Minimal Power:</label>
+							<input type="number" name="minpower" class="form-control" min="20" max="900">
+						</div>
+
+						<div class="col-lg-4 form-group hid">
+							<label for="maxpower">Maximal Power:</label>
+							<input type="number" name="maxpower" class="form-control" min="20" max="900">
+						</div>
+							<div class="col-lg-12 form-group">						
+									<button type="submit" class="btn btn-default ">Search</button>	
+									<button onclick="showInputs()" class="btn btn-info" type="button">Detailed Search</button>		
+							</div>
+					</div>	
+					</form>
+					
+		</div>
+
+			<div class="container col-md-3 col-lg-2 bg-danger">
+				<nav class="sidenav ">
+					<ul class="list-unstyled text-center">
+						<li><a href="#">ad 1</a>
+						<li><a href="#">ad 2</a>
+						<li><a href="#">ad 3</a>
+					</ul>
+				</nav>
+			</div>
+
+			<footer class="container text-center col-sm-12 col-md-12 col-lg-12">
+  				<p>Footer Text</p>
+			</footer>
+
+</body>
+</html>
