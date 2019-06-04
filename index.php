@@ -1,3 +1,32 @@
+	<?php
+	$connect = mysqli_connect("localhost","root","","make_model_db");
+	
+	function fill_brand($connect){
+		$output = '';
+		$sql = "SELECT * FROM make_table ORDER BY make_name ASC";
+		$result = mysqli_query($connect,$sql);
+
+		while($row = mysqli_fetch_array($result))
+		{
+			$output .= '<option value="'.$row["make_id"].'">'.$row["make_name"].'</optoion>';
+		}
+		return $output;
+	}
+
+
+	function fill_model($connect)  
+ {  
+      $output = '';  
+      $sql = "SELECT * FROM model_table ORDER BY model_name";  
+      $result = mysqli_query($connect, $sql);  
+      while($row = mysqli_fetch_array($result))  
+      {  
+            $output .= '<option value="'.$row["model_id"].'">'.$row["model_name"].'</optoion>';
+      }  
+      return $output;  
+ }  
+	?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,7 +34,14 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-	<script type="text/javascript" src="myscript.js"></script>
+	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+	
+  	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script> 
+    <script src="jquery-3.4.0.min.js"></script>
+    <script type="text/javascript" src="myscript.js"></script>
+    
+
+
 	<style>
 		footer {
       background-color: #555;
@@ -71,15 +107,19 @@
 				<div class="container col-sm-12 col-md-12 col-lg-12">
 					<form class="form col-md-12 col-lg-12" >
 						<div class="col-sm-6 col-md-6 col-lg-4 form-group">
+							
 							<label for="brand">Brand:</label>
-							<select  name="brand" class="form-control">
-								<option value=""></option>
+							
+							<select  name="brand" id="brand" class="form-control">
+								<option value="">Select Brand</option>
+								<?php echo fill_brand($connect); ?>
 							</select>
 						</div>
 						<div class="col-sm-6 col-md-6 col-lg-4 form-group">
 							<label for="model">Model:</label>
-							<select name="model" class="form-control">
-								<option value=""></option>
+							<select name="model" id="model" class="form-control">
+								<option value="">Select Model</option>
+								<?php echo fill_model($connect); ?>
 							</select>
 						</div>
 
@@ -220,3 +260,22 @@
 
 </body>
 </html>
+
+<script type="text/javascript">
+ $(document).ready(function(){  
+      $('#brand').change(function(){  
+           var brand_id = $(this).val();  
+           $.ajax({  
+                url:"load_data.php",  
+                method:"POST",  
+                data:{brandId:brand_id},
+                dataType:"text",  
+                success:function(data)
+                {  
+                     $('#model').html(data);  
+                }  
+           });  
+      });  
+ });  
+ </script>
+
