@@ -1,31 +1,4 @@
-	<?php
-	$connect = mysqli_connect("localhost","root","","make_model_db");
-	
-	function fill_brand($connect){
-		$output = '';
-		$sql = "SELECT * FROM make_table ORDER BY make_name ASC";
-		$result = mysqli_query($connect,$sql);
-
-		while($row = mysqli_fetch_array($result))
-		{
-			$output .= '<option value="'.$row["make_id"].'">'.$row["make_name"].'</optoion>';
-		}
-		return $output;
-	}
-
-
-	function fill_model($connect)  
- {  
-      $output = '';  
-      $sql = "SELECT * FROM model_table ORDER BY model_name";  
-      $result = mysqli_query($connect, $sql);  
-      while($row = mysqli_fetch_array($result))  
-      {  
-            $output .= '<option value="'.$row["model_id"].'">'.$row["model_name"].'</optoion>';
-      }  
-      return $output;  
- }  
-	?>
+<?php include 'php.php'; ?>
 
 <!DOCTYPE html>
 <html>
@@ -34,41 +7,26 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="style.css">
+
 	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-	
   	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script> 
     <script src="jquery-3.4.0.min.js"></script>
     <script type="text/javascript" src="myscript.js"></script>
+    <script type="text/javascript" src="js.js"></script>
     
-
-
-	<style>
-		footer {
-      background-color: #555;
-      color: white;
-      padding: 15px;
-    }
-		
-		.hid{
-	display: none;
-	}
-	</style>
+	
 	<title>index</title>
-
-
-
-				
-
 </head>
 <body>
 
 		<nav class=" navbar-inverse col-sm-12 col-md-12 col-lg-12">   
 		  			<div class="container-fluid">
 		    			<div class="navbar-header ">
-		      				<a class="navbar-brand" href="#">WebSiteName</a>
+		      				<a class="navbar-brand" href="index.php">WebSiteName</a>
 		    			</div>
 		    			<ul class="nav navbar-nav">
-		      				<li class="active"><a href="#">Home</a></li>
+		      				<li class="active"><a href="index.php">Home</a></li>
 						    <li><a href="#">Page 1</a></li>
 						    <li><a href="#">Page 2</a></li>
 						    <li><a href="#">Page 3</a></li>
@@ -90,7 +48,7 @@
 				<nav class="sidenav">
 
 					<ul class="list-unstyled text-center">
-						<li><a href="add_car.html">Add Car</a>
+						<li><a href="add_car.php">Add Car</a>
 						<li><a href="#">Edit Car</a>
 						<li><a href="#">link 3</a>
 					</ul>
@@ -119,7 +77,7 @@
 							<label for="model">Model:</label>
 							<select name="model" id="model" class="form-control">
 								<option value="">Select Model</option>
-								<?php echo fill_model($connect); ?>
+								
 							</select>
 						</div>
 
@@ -144,7 +102,7 @@
 							</select>
 						</div>
 						<div class="col-sm-6 col-md-6 col-lg-4 form-group">
-							<label for="afteryear">Year:</label>
+							<label for="fromyear">Year:</label>
 							<select name="fromyear" class="form-control">
 								<option value="">all</option>
 								<option value="1990">1990</option>
@@ -215,11 +173,12 @@
 								<option value="2018">2018</option>
 								<option value="2019">2019</option>
 							</select>
+							<span id="error">Invalid "To Year" value!</span>
 						</div>
 
 						<div class="col-sm-6 col-md-6 col-lg-4 form-group">
-							<label for="transmision">Transmision:</label>
-							<select name="transmision" class="form-control">
+							<label for="transmission">Transmission:</label>
+							<select name="transmission" class="form-control">
 								<option value="">all</option>
 								<option value="manual">Manual</option>
 								<option value="auto">Automatic</option>
@@ -236,7 +195,7 @@
 							<input type="number" name="maxpower" class="form-control" min="20" max="900">
 						</div>
 							<div class=" col-sm-12 col-md-12 col-lg-12 form-group">						
-									<button type="submit" class="btn btn-default ">Search</button>	
+									<button type="submit" class="btn btn-default" id="submit-button">Search</button>	
 									<button onclick="showInputs()" class="btn btn-info" type="button">Detailed Search</button>		
 							</div>
 					</div>	
@@ -261,21 +220,4 @@
 </body>
 </html>
 
-<script type="text/javascript">
- $(document).ready(function(){  
-      $('#brand').change(function(){  
-           var brand_id = $(this).val();  
-           $.ajax({  
-                url:"load_data.php",  
-                method:"POST",  
-                data:{brandId:brand_id},
-                dataType:"text",  
-                success:function(data)
-                {  
-                     $('#model').html(data);  
-                }  
-           });  
-      });  
- });  
- </script>
 
